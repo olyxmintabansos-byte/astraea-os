@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --space-bg: #030308;
+    --hud-cyan: #00f5d4;
+    --hud-amber: #f59e0b;
+    --hud-red: #ef4444;
+    --hud-purple: #8b5cf6;
+    --hud-border: rgba(0, 245, 212, 0.25);
+  }
+
+  body {
+    background-color: var(--space-bg);
+    color: #e2e8f0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    overflow-x: hidden;
+  }
+}
+
+/* Cybernetic Radar & Vector Mesh */
+.space-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 245, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 245, 212, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Glassmorphism HUD Panels */
+.hud-panel {
+  background: rgba(8, 10, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--hud-border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7);
+}
+
+.hud-panel-alert {
+  background: rgba(25, 8, 12, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+}
+
+/* Glow Text */
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.6);
+}
+
+.glow-amber {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+}
+
+/* Custom telemetry scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #05050d;
+}
+::-webkit-scrollbar-thumb {
+  background: #00f5d4;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
