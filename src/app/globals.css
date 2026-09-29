@@ -2,100 +2,59 @@
 
 @layer base {
   :root {
-    --space-bg: #030308;
-    --hud-cyan: #00f5d4;
-    --hud-cyan-glow: rgba(0, 245, 212, 0.4);
+    --space-bg: #07090e;
+    --panel-bg: #0d111a;
+    --panel-border: #1a2233;
+    --hud-cyan: #38bdf8;
     --hud-amber: #f59e0b;
-    --hud-amber-glow: rgba(245, 158, 11, 0.4);
+    --hud-emerald: #10b981;
     --hud-red: #ef4444;
-    --hud-purple: #8b5cf6;
-    --hud-border: rgba(0, 245, 212, 0.25);
   }
 
   body {
     background-color: var(--space-bg);
-    color: #e2e8f0;
+    color: #cbd5e1;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     overflow-x: hidden;
+    font-feature-settings: "tnum" 1;
   }
 }
 
-/* Subtle Tactical Cockpit Grid & Radar Texture */
-.space-grid {
-  background-image: 
-    linear-gradient(to right, rgba(0, 245, 212, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 245, 212, 0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Ultra-Crisp Cockpit HUD Panels */
+/* Aerospace Technical Console Panels */
 .hud-panel {
-  background: rgba(6, 8, 18, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 245, 212, 0.2);
-  box-shadow: 0 4px 25px -4px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 245, 212, 0.03);
+  background: #0b0f17;
+  border: 1px solid #1a2333;
 }
 
 .hud-panel-alert {
-  background: rgba(20, 6, 10, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-  box-shadow: 0 0 25px rgba(239, 68, 68, 0.2), inset 0 0 15px rgba(239, 68, 68, 0.05);
+  background: #140b0f;
+  border: 1px solid #3b1822;
 }
 
 .hud-panel-amber {
-  background: rgba(18, 12, 5, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), inset 0 0 15px rgba(245, 158, 11, 0.03);
+  background: #120e08;
+  border: 1px solid #382710;
 }
 
-/* Glow Utilities */
-.glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 245, 212, 0.6), 0 0 20px rgba(0, 245, 212, 0.3);
-}
-
-.glow-amber {
-  text-shadow: 0 0 10px rgba(245, 158, 11, 0.6), 0 0 20px rgba(245, 158, 11, 0.3);
-}
-
-.glow-red {
-  text-shadow: 0 0 10px rgba(239, 68, 68, 0.6), 0 0 20px rgba(239, 68, 68, 0.3);
-}
-
-/* Starfield Pulse Animation */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(0.8); }
-  50% { opacity: 0.9; transform: scale(1.2); }
-}
-
-.animate-twinkle {
-  animation: twinkle 3s ease-in-out infinite;
-}
-
-/* Radar Sweep Keyframe */
-@keyframes radarSweep {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-radar-sweep {
-  animation: radarSweep 6s linear infinite;
-  transform-origin: center;
+/* High-contrast telemetry text */
+.telemetry-val {
+  font-family: ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 /* Custom telemetry scrollbars */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #04040a;
+  background: #07090e;
 }
 ::-webkit-scrollbar-thumb {
-  background: #00f5d4;
-  border-radius: 2px;
+  background: #1e293b;
+  border-radius: 1px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #f59e0b;
+  background: #38bdf8;
 }
