@@ -4,7 +4,9 @@
   :root {
     --space-bg: #030308;
     --hud-cyan: #00f5d4;
+    --hud-cyan-glow: rgba(0, 245, 212, 0.4);
     --hud-amber: #f59e0b;
+    --hud-amber-glow: rgba(245, 158, 11, 0.4);
     --hud-red: #ef4444;
     --hud-purple: #8b5cf6;
     --hud-border: rgba(0, 245, 212, 0.25);
@@ -18,36 +20,68 @@
   }
 }
 
-/* Cybernetic Radar & Vector Mesh */
+/* Subtle Tactical Cockpit Grid & Radar Texture */
 .space-grid {
   background-image: 
-    linear-gradient(to right, rgba(0, 245, 212, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 245, 212, 0.05) 1px, transparent 1px);
-  background-size: 30px 30px;
+    linear-gradient(to right, rgba(0, 245, 212, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 245, 212, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-/* Glassmorphism HUD Panels */
+/* Ultra-Crisp Cockpit HUD Panels */
 .hud-panel {
-  background: rgba(8, 10, 20, 0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--hud-border);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.7);
+  background: rgba(6, 8, 18, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  box-shadow: 0 4px 25px -4px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 245, 212, 0.03);
 }
 
 .hud-panel-alert {
-  background: rgba(25, 8, 12, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(20, 6, 10, 0.85);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(239, 68, 68, 0.4);
-  box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.2), inset 0 0 15px rgba(239, 68, 68, 0.05);
 }
 
-/* Glow Text */
+.hud-panel-amber {
+  background: rgba(18, 12, 5, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.15), inset 0 0 15px rgba(245, 158, 11, 0.03);
+}
+
+/* Glow Utilities */
 .glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 245, 212, 0.6);
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.6), 0 0 20px rgba(0, 245, 212, 0.3);
 }
 
 .glow-amber {
-  text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.6), 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.glow-red {
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.6), 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Starfield Pulse Animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 0.9; transform: scale(1.2); }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Radar Sweep Keyframe */
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-radar-sweep {
+  animation: radarSweep 6s linear infinite;
+  transform-origin: center;
 }
 
 /* Custom telemetry scrollbars */
@@ -56,7 +90,7 @@
   height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #05050d;
+  background: #04040a;
 }
 ::-webkit-scrollbar-thumb {
   background: #00f5d4;

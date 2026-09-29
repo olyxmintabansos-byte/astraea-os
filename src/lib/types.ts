@@ -30,6 +30,18 @@ export interface StagingTimelineEvent {
   status: 'PENDING' | 'ACTIVE' | 'COMPLETED';
 }
 
+export interface EngineTelemetry {
+  id: number;
+  name: string;
+  chamberPressureMpa: number;
+  turbopumpRpm: number;
+  mixtureRatio: number;
+  throttlePercent: number;
+  status: 'NOMINAL' | 'THROTTLED' | 'SHUTDOWN' | 'WARNING';
+  gimbalPitchDeg: number;
+  gimbalYawDeg: number;
+}
+
 export interface ReentryPlasmaTelemetry {
   altitudeKm: number;
   velocityMach: number;
@@ -38,6 +50,16 @@ export interface ReentryPlasmaTelemetry {
   rfAttenuationDb: number;
   blackoutStatus: 'CLEAR' | 'IONIZING' | 'PEAK_BLACKOUT' | 'COMM_RESTORED';
   dynamicPressureKPa: number;
+}
+
+export interface TPSTileZone {
+  zoneId: string;
+  name: string;
+  material: 'PICA-X' | 'TUFROC' | 'RCC' | 'LI-900';
+  currentTempCelsius: number;
+  maxDesignTempCelsius: number;
+  ablationDepthMm: number;
+  heatFluxWattsCm2: number;
 }
 
 export interface AttitudeQuaternion {
@@ -55,4 +77,12 @@ export interface AttitudeQuaternion {
     status: 'IDLE' | 'FIRING';
     pulseMs: number;
   }[];
+}
+
+export interface ReactionWheelState {
+  axis: 'X' | 'Y' | 'Z';
+  rpm: number;
+  maxRpm: number;
+  torqueNm: number;
+  saturated: boolean;
 }
